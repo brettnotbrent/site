@@ -1,5 +1,287 @@
-body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+/*CSS for Node Philly*/
+/*Version: 1.0*/
+/*Authored: @bwhitham, @timsavery*/
+
+//styl variables
+nodeph-blue = rgba(130, 192, 192, 1.0)
+nodeph-blue50 = rgba(130, 192, 192, 0.5)
+nodeph-gray = rgba(127, 136, 145, 1.0)
+nodeph-gray50 = rgba(127, 136, 145, 0.5)
+nodeph-green = rgba(186, 220, 20, 1.0)
+nodeph-cream = rgba(220, 213, 152, 1.0)
+nodeph-mainsprite = url('/imgs/node-philly-sprite01.png')
+nodeph-sitebg = url('/imgs/node-philly-sitebg.png')
+nodeph-thickborder = 4px
+nodeph-normalborder = 2px
+nodeph-thinborder = 1px
+center-hor = 0 auto 0 auto
+border-gap = 3px
+standard-padding = 5px
+
+side-border(n)
+	border-left n nodeph-blue solid
+	border-right n nodeph-blue solid
+bottom-border(n)
+	border-bottom n nodeph-blue solid
+top-border(n)
+	border-top n nodeph-blue solid
+top-bottom-border(n)
+	border-top n nodeph-blue solid
+	border-bottom n nodeph-blue solid
+
+/*__________________________________________________________ universals*/
+
+*
+	margin 0
+	padding 0 
+	outline none
+	border none
+	list-style none
+
+.clear
+	clear both
+
+::-moz-selection
+	background-color nodeph-green
+	color inherit
+	text-shadow none
+
+::selection
+	background-color nodeph-green
+	color inherit
+	text-shadow none
+
+
+/*__________________________________________________________ typography*/
+
+html
+	font-size 100%
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+	font-family sans-serif
+	color nodeph-gray
+
+p
+	font-size 1em
+
+h1, h2, h3, h4
+	font-size 2em
+
 a
-  color: #00B7FF
+	color nodeph-blue
+	text-decoration underline
+
+/*__________________________________________________________ structure*/
+
+html
+	width 100%
+	height 100%
+	background-image nodeph-sitebg
+	background-repeat repeat
+
+body
+	width 1240px
+	side-border(nodeph-normalborder)
+	bottom-border(nodeph-normalborder)
+	margin center-hor
+	padding 0 0 15px 0
+
+header.global, section.feature, section.timsdoodads, footer.global
+	width 100%
+
+header.global
+	height 115px
+
+section.feature
+	height 285px
+	bottom-border(nodeph-normalborder)
+
+section.timsdoodads
+	height 400px
+
+footer.global
+	height 54px
+
+/*__________________________________________________________ site head*/
+
+nav.nav1, nav.logo, nav.nav2
+	display inline-block
+
+nav.nav1, nav.nav2
+	width 515px
+	height 50px
+	background-image nodeph-mainsprite
+	background-position 0 -15px
+	background-repeat repeat-x
+	vertical-align top
+	margin 34px 0 0 0
+
+nav.logo
+	width 180px
+	height 105px
+	margin 5px 15px 0 15px
+	background-image nodeph-mainsprite
+	background-position -319px -65px
+	background-repeat no-repeat
+
+/*__________________________________________________________ featured content*/
+
+section.featured-content
+	width inherit
+	height 266px
+
+section.feature footer
+	width inherit
+	height 19px
+	top-border(nodeph-normalborder)
+
+section.feature footer section.col1, section.feature footer section.col3
+	width 530px
+	background-image nodeph-mainsprite
+	background-position 0 -2px
+	background-repeat repeat-x
+
+section.feature footer section.featured-controls
+	width 180px
+
+section.feature footer section.col1, section.feature footer section.col3, section.feature footer section.featured-controls
+	display inline-block
+	height 9px
+	top-bottom-border(nodeph-thinborder)
+	margin border-gap 0 0 0
+
+/*__________________________________________________________ widgets*/
+
+section.tweets, section.geeks
+	width 294px
+
+section.calendar
+	width 608px
+
+section.tweets, section.geeks, section.calendar
+	display inline-block
+	height 390px
+	padding standard-padding
+	vertical-align top
+
+section.tweets
+	margin 0 border-gap 0 0
+	border-right nodeph-thinborder nodeph-blue solid
+
+section.geeks
+	margin 0 0 0 border-gap
+	border-left nodeph-thinborder nodeph-blue solid
+
+section.calendar
+	side-border(nodeph-normalborder)
+
+/*__________________________________________________________ site footer*/
+
+footer.global section.col1, footer.global section.col2, footer.global section.socicons
+	display inline-block
+	height 50px
+
+footer.global section.col1, footer.global section.col2
+	width 495px
+	top-bottom-border(nodeph-normalborder)
+
+footer.global section.socicons
+	width 230px
+	margin 0 10px 0 10px
+	border none
+
+footer.global section.inset
+	width inherit
+	height 42px
+	margin border-gap 0
+	top-bottom-border(nodeph-thinborder)
+	display inline-block
+	
+footer.global section.stars
+	height 9px
+	width 315px
+	background-image nodeph-mainsprite
+	background-position 0 -2px
+	background-repeat repeat-x
+	margin:15px 0
+
+section.established, section.year
+	width 50px
+	height inherit
+	side-border(nodeph-thinborder)
+
+section.established
+	margin 0 5px 0 120px
+
+footer.global section.stars, section.established, section.year
+	display inline-block
+
+/*__________________________________________________________ icons */
+
+
+a.icon-twitter, a.icon-geeklist, a.icon-instagram, a.icon-github
+	width 50px
+	height 50px
+	display inline-block
+	background-image nodeph-mainsprite
+	background-repeat no-repeat
+	cursor pointer
+
+a.icon-twitter, a.icon-geeklist, a.icon-instagram
+	margin 0 5px 0
+
+
+a.icon-twitter
+	background-position 0 -65px
+a.icon-twitter:hover
+	background-position -50px -65px
+a.icon-instagram
+	background-position 0 -115px
+a.icon-instagram:hover
+	background-position -50px -115px
+a.icon-geeklist
+	background-position 0 -165px
+a.icon-geeklist:hover
+	background-position -50px -165px
+a.icon-github
+	background-position 0 -215px
+a.icon-github:hover
+	background-position -50px -215px
+
+div.year-icon, div.est-icon
+	width 35px
+	height 15px
+	background-image nodeph-mainsprite
+	background-repeat no-repeat
+	margin 12px 0 0 8px
+
+div.year-icon
+	background-position -202px -90px
+
+div.est-icon
+	background-position -202px -69px
+
+/*__________________________________________________________ tweets sidebar */
+
+section.tweets h1, section.geeks h1
+	width 250px
+	height 71px
+	background-image nodeph-mainsprite
+	background-repeat no-repeat
+	margin 10px 0 0 20px
+
+section.tweets h1
+	background-position 0 -423px
+
+section.geeks h1
+	background-position 0 -494px	
+
+
+/*__________________________________________________________ phones */
+
+@media screen and (max-width: 321px)
+	body
+		width 95%
+
+
+
